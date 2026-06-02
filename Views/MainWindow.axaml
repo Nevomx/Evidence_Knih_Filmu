@@ -1,0 +1,126 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="EvidenceKnihFilmu.Views.MainWindow"
+        Title="Evidence knih a filmů"
+        Width="960" Height="620"
+        MinWidth="720" MinHeight="480"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto">
+
+        <Panel Grid.Row="0" Background="#1E3A5F">
+            <StackPanel Orientation="Horizontal" Margin="16,10">
+                <TextBlock Text="📚" FontSize="24" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <StackPanel>
+                    <TextBlock Text="Evidence knih a filmů"
+                               FontSize="18" FontWeight="Bold" Foreground="White"/>
+                    <TextBlock x:Name="SubtitleLabel"
+                               Text="Načítání..." FontSize="11" Foreground="#90B4CE"/>
+                </StackPanel>
+            </StackPanel>
+        </Panel>
+
+        <Border Grid.Row="1" Background="#F5F7FA" BorderBrush="#DDE1E7"
+                BorderThickness="0,0,0,1" Padding="12,8">
+            <Grid ColumnDefinitions="*,150,120,Auto">
+                <TextBox Grid.Column="0"
+                         x:Name="SearchBox"
+                         Watermark="🔍  Hledat podle názvu nebo popisu..."
+                         Margin="0,0,8,0"
+                         TextChanged="SearchBox_TextChanged"/>
+                <ComboBox Grid.Column="1"
+                          x:Name="GenreFilter"
+                          Margin="0,0,8,0"
+                          SelectionChanged="Filter_Changed"/>
+                <ComboBox Grid.Column="2"
+                          x:Name="TypComboBox"
+                          SelectedIndex="0"
+                          Margin="0,0,8,0"
+                          SelectionChanged="Filter_Changed">
+                    <ComboBoxItem>Vše</ComboBoxItem>
+                    <ComboBoxItem>Kniha</ComboBoxItem>
+                    <ComboBoxItem>Film</ComboBoxItem>
+                </ComboBox>
+                <Button Grid.Column="3"
+                        Content="＋  Přidat"
+                        Background="#27AE60" Foreground="White"
+                        FontWeight="SemiBold" Padding="14,6"
+                        Click="AddButton_Click"/>
+            </Grid>
+        </Border>
+
+        <ListBox Grid.Row="2"
+                 x:Name="ItemsListBox"
+                 Margin="12,8"
+                 SelectionChanged="ItemsListBox_SelectionChanged"
+                 DoubleTapped="ItemsListBox_DoubleTapped">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnDefinitions="Auto,*,Auto,150" Margin="4,6" MinHeight="44">
+                        <TextBlock Grid.Column="0"
+                                   Text="{Binding TypeIcon}"
+                                   FontSize="22" Width="36"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"/>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="8,0">
+                            <TextBlock Text="{Binding Title}"
+                                       FontSize="14" FontWeight="SemiBold"/>
+                            <StackPanel Orientation="Horizontal" Spacing="6">
+                                <TextBlock Text="{Binding Genre}" FontSize="11" Foreground="#666"/>
+                                <TextBlock Text="·" FontSize="11" Foreground="#999"/>
+                                <TextBlock Text="{Binding LengthDisplay}" FontSize="11" Foreground="#666"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <Border Grid.Column="2"
+                                Background="#F39C12" CornerRadius="6"
+                                Padding="8,3" Margin="6,0"
+                                VerticalAlignment="Center">
+                            <TextBlock Text="{Binding RatingDisplay}"
+                                       Foreground="White" FontSize="12" FontWeight="SemiBold"/>
+                        </Border>
+                        <TextBlock Grid.Column="3"
+                                   Text="{Binding CompletedDisplay}"
+                                   FontSize="12"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Right"
+                                   Margin="6,0"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Border Grid.Row="3" Background="#F5F7FA"
+                BorderBrush="#DDE1E7" BorderThickness="0,1,0,0" Padding="12,8">
+            <Grid ColumnDefinitions="Auto,Auto,Auto,*,Auto,Auto">
+                <Button Grid.Column="0" x:Name="EditButton"
+                        Content="✏️  Upravit" IsEnabled="False"
+                        Margin="0,0,6,0" Padding="10,6"
+                        Click="EditButton_Click"/>
+                <Button Grid.Column="1" x:Name="DeleteButton"
+                        Content="🗑️  Smazat" IsEnabled="False"
+                        Background="#E74C3C" Foreground="White"
+                        Margin="0,0,6,0" Padding="10,6"
+                        Click="DeleteButton_Click"/>
+                <Button Grid.Column="2" x:Name="DetailButton"
+                        Content="🔍  Detail" IsEnabled="False"
+                        Background="#3498DB" Foreground="White"
+                        Padding="10,6"
+                        Click="DetailButton_Click"/>
+                <TextBlock Grid.Column="3" x:Name="StatusLabel"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="#7F8C8D" FontSize="12"/>
+                <Button Grid.Column="4"
+                        Content="📥  Importovat"
+                        Margin="0,0,6,0" Padding="10,6"
+                        Click="ImportButton_Click"/>
+                <Button Grid.Column="5"
+                        Content="📤  Exportovat TXT"
+                        Background="#8E44AD" Foreground="White"
+                        Padding="10,6"
+                        Click="ExportButton_Click"/>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>

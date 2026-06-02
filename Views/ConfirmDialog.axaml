@@ -1,0 +1,30 @@
+ <Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="EvidenceKnihFilmu.Views.ConfirmDialog"
+        Title="Potvrzení"
+        Width="360" Height="160"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid RowDefinitions="*,Auto" Margin="20">
+        <TextBlock Grid.Row="0"
+                   x:Name="MessageLabel"
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Center"
+                   FontSize="14"/>
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Spacing="8">
+            <Button Content="Zrušit"
+                    Padding="14,7"
+                    Click="No_Click"/>
+            <Button Content="Smazat"
+                    Background="#E74C3C" Foreground="White"
+                    FontWeight="SemiBold"
+                    Padding="14,7"
+                    Click="Yes_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

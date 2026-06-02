@@ -1,0 +1,90 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="EvidenceKnihFilmu.Views.DetailWindow"
+        Title="Detail"
+        Width="440" Height="480"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- Záhlaví -->
+        <Panel Grid.Row="0" Background="#1E3A5F" Height="52">
+            <TextBlock x:Name="HeaderTitle"
+                       FontSize="16" FontWeight="Bold"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       TextTrimming="CharacterEllipsis"
+                       Margin="16,0"/>
+        </Panel>
+
+        <!-- Detail -->
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Margin="20,16" Spacing="14">
+
+                <!-- Typ + žánr -->
+                <StackPanel Orientation="Horizontal" Spacing="12">
+                    <Border Background="#1E3A5F" CornerRadius="6" Padding="10,4">
+                        <TextBlock x:Name="TypeLabel"
+                                   Foreground="White" FontSize="13" FontWeight="SemiBold"/>
+                    </Border>
+                    <Border Background="#ECF0F1" CornerRadius="6" Padding="10,4">
+                        <TextBlock x:Name="GenreLabel"
+                                   FontSize="13"/>
+                    </Border>
+                </StackPanel>
+
+                <Rectangle Fill="#E0E0E0" Height="1"/>
+
+                <!-- Délka a hodnocení -->
+                <Grid ColumnDefinitions="*,*">
+                    <StackPanel Grid.Column="0" Spacing="2">
+                        <TextBlock Text="Délka" Foreground="#888" FontSize="11"/>
+                        <TextBlock x:Name="LengthLabel"
+                                   FontSize="16" FontWeight="SemiBold"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Spacing="2">
+                        <TextBlock Text="Hodnocení" Foreground="#888" FontSize="11"/>
+                        <TextBlock x:Name="RatingLabel"
+                                   FontSize="16" FontWeight="SemiBold" Foreground="#F39C12"/>
+                    </StackPanel>
+                </Grid>
+
+                <!-- Stav -->
+                <StackPanel Spacing="2">
+                    <TextBlock Text="Stav" Foreground="#888" FontSize="11"/>
+                    <TextBlock x:Name="CompletedLabel"
+                               FontSize="14" FontWeight="SemiBold"/>
+                </StackPanel>
+
+                <Rectangle Fill="#E0E0E0" Height="1"/>
+
+                <!-- Popis -->
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Popis" Foreground="#888" FontSize="11"/>
+                    <TextBlock x:Name="DescriptionLabel"
+                               TextWrapping="Wrap"
+                               FontSize="13" LineHeight="20"/>
+                </StackPanel>
+
+                <!-- Datum přidání -->
+                <StackPanel Spacing="2">
+                    <TextBlock Text="Přidáno do evidence" Foreground="#888" FontSize="11"/>
+                    <TextBlock x:Name="DateLabel" FontSize="12" Foreground="#555"/>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Tlačítko zavřít -->
+        <Border Grid.Row="2" Background="#F5F7FA"
+                BorderBrush="#DDE1E7" BorderThickness="0,1,0,0"
+                Padding="16,10">
+            <Button Content="Zavřít"
+                    HorizontalAlignment="Right"
+                    Padding="20,7"
+                    Click="CloseButton_Click"/>
+        </Border>
+
+    </Grid>
+</Window>

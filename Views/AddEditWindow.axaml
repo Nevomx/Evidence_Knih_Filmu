@@ -1,0 +1,116 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="EvidenceKnihFilmu.Views.AddEditWindow"
+        Title="Přidat položku"
+        Width="480" Height="580"
+        MinWidth="420" MinHeight="520"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <Panel Grid.Row="0" Background="#1E3A5F" Height="52">
+            <TextBlock x:Name="WindowTitle"
+                       Text="Přidat položku"
+                       FontSize="16" FontWeight="Bold"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       Margin="16,0"/>
+        </Panel>
+
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Margin="20,16" Spacing="12">
+
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Název *" FontWeight="SemiBold"/>
+                    <TextBox x:Name="TitleBox"
+                             Watermark="Zadejte název knihy nebo filmu"/>
+                    <TextBlock x:Name="TitleError" Text="" Foreground="Red" FontSize="11"/>
+                </StackPanel>
+
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Typ *" FontWeight="SemiBold"/>
+                    <StackPanel Orientation="Horizontal" Spacing="20">
+                        <RadioButton x:Name="TypeBook"
+                                     Content="📖  Kniha"
+                                     IsChecked="True"
+                                     GroupName="TypSkupina"
+                                     IsCheckedChanged="TypeRadio_Changed"/>
+                        <RadioButton x:Name="TypeFilm"
+                                     Content="🎬  Film"
+                                     GroupName="TypSkupina"
+                                     IsCheckedChanged="TypeRadio_Changed"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Žánr *" FontWeight="SemiBold"/>
+                    <Grid ColumnDefinitions="*,Auto">
+                        <ComboBox Grid.Column="0"
+                                  x:Name="GenreBox"
+                                  HorizontalAlignment="Stretch"
+                                  Margin="0,0,8,0"/>
+                        <Button Grid.Column="1"
+                                Content="＋ Nový"
+                                Padding="8,6"
+                                Click="NewGenre_Click"/>
+                    </Grid>
+                    <TextBlock x:Name="GenreError" Text="" Foreground="Red" FontSize="11"/>
+                </StackPanel>
+
+                <StackPanel Spacing="4">
+                    <TextBlock x:Name="LengthLabel" Text="Počet stran *" FontWeight="SemiBold"/>
+                    <TextBox x:Name="LengthBox" Watermark="např. 320"/>
+                    <TextBlock x:Name="LengthError" Text="" Foreground="Red" FontSize="11"/>
+                </StackPanel>
+
+                <StackPanel Spacing="4">
+                    <TextBlock FontWeight="SemiBold">
+                        <Run Text="Hodnocení: "/>
+                        <Run x:Name="RatingValue" Text="5.0"/>
+                        <Run Text="/10"/>
+                    </TextBlock>
+                    <Slider x:Name="RatingSlider"
+                            Minimum="1" Maximum="10"
+                            Value="5" TickFrequency="0.5"
+                            IsSnapToTickEnabled="True"
+                            />
+                </StackPanel>
+
+                <CheckBox x:Name="CompletedBox"
+                          Content="Označit jako přečteno / zhlédnuto"/>
+
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Popis / Anotace" FontWeight="SemiBold"/>
+                    <TextBox x:Name="DescriptionBox"
+                             Watermark="Krátký popis nebo poznámka..."
+                             AcceptsReturn="True"
+                             Height="90"
+                             TextWrapping="Wrap"/>
+                </StackPanel>
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" Background="#F5F7FA"
+                BorderBrush="#DDE1E7" BorderThickness="0,1,0,0" Padding="16,10">
+            <Grid ColumnDefinitions="*,Auto,Auto">
+                <TextBlock Grid.Column="0"
+                           Text="* Povinné pole"
+                           Foreground="#999" FontSize="11"
+                           VerticalAlignment="Center"/>
+                <Button Grid.Column="1"
+                        Content="Zrušit"
+                        Padding="14,7"
+                        Margin="0,0,8,0"
+                        Click="CancelButton_Click"/>
+                <Button Grid.Column="2"
+                        Content="Uložit"
+                        Background="#27AE60" Foreground="White"
+                        FontWeight="SemiBold" Padding="14,7"
+                        Click="SaveButton_Click"/>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>

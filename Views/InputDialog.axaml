@@ -1,0 +1,31 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="EvidenceKnihFilmu.Views.InputDialog"
+        Width="360" Height="180"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner">
+
+    <Grid RowDefinitions="Auto,Auto,Auto" Margin="20">
+        <TextBlock Grid.Row="0"
+                   x:Name="PromptLabel"
+                   FontSize="13"
+                   TextWrapping="Wrap"/>
+
+        <TextBox Grid.Row="1"
+                 x:Name="InputBox"/>
+
+        <StackPanel Grid.Row="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Spacing="8">
+            <Button Content="Zrušit"
+                    Padding="14,7"
+                    Click="Cancel_Click"/>
+            <Button Content="Přidat"
+                    Background="#27AE60" Foreground="White"
+                    FontWeight="SemiBold"
+                    Padding="14,7"
+                    Click="Ok_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

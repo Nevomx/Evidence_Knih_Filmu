@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Views/AddEditWindow.axaml" value="EvidenceKnihFilmu.csproj" />
+        <entry key="Views/ConfirmDialog.axaml" value="EvidenceKnihFilmu.csproj" />
+        <entry key="Views/DetailWindow.axaml" value="EvidenceKnihFilmu.csproj" />
+        <entry key="Views/InputDialog.axaml" value="EvidenceKnihFilmu.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

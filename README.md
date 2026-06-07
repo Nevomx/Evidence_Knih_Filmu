@@ -5,8 +5,8 @@ Aplikace pro správu knih a filmů vytvořená v Avalonia UI (.NET 9).
 ## Spuštění projektu
 
 ### Požadavky
-- .NET 8 SDK (https://dotnet.microsoft.com/download)
-- Visual Studio 2022 nebo Rider
+- .NET 9 SDK (https://dotnet.microsoft.com/download)
+- Rider
 
 ### Jet Brains
 1. Otevři `EvidenceKnihFilmu.csproj`
